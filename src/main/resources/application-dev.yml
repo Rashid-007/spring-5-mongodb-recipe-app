@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/throne_dev?useSSL=false
+    username: throne_dev_user
+    password: thronedev
+    platform: mysql
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+    # properties to generate schema from domain entities
+#    properties:
+#      javax:
+#        persistence:
+#          schema-generation:
+#            create-source: metadata
+#            scripts:
+#              action: create
+#              create-target: throne_db_schema_generation.sql
