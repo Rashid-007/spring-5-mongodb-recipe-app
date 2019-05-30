@@ -47,8 +47,8 @@ public class IngredientServiceImp implements IngredientService {
     }
 
     @Override
-    public IngredientCommand saveIngredientCommand(IngredientCommand ingredientCommand, String recipeId) {
-        Optional<Recipe> recipeOptional = recipeRepository.findById(recipeId);
+    public IngredientCommand saveIngredientCommand(IngredientCommand ingredientCommand) {
+        Optional<Recipe> recipeOptional = recipeRepository.findById(ingredientCommand.getRecipeId());
 
         if (recipeOptional.isPresent()) {
             Recipe recipe = recipeOptional.get();
@@ -91,7 +91,7 @@ public class IngredientServiceImp implements IngredientService {
             //to do check for fail
             return ingredientToIngredientCommand.convert(savedIngredientOptional.get());
         } else {
-            log.error("Recipe not found for id: " + recipeId);
+            log.error("Recipe not found for id: " + ingredientCommand);
             return new IngredientCommand();
         }
 

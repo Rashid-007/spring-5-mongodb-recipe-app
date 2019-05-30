@@ -102,15 +102,17 @@ public class IngredientControllerTest {
         //given
         IngredientCommand command = new IngredientCommand();
         command.setId("3");
+        command.setRecipeId("2");
 
         //when
-        when(ingredientService.saveIngredientCommand(any(), any())).thenReturn(command);
+        when(ingredientService.saveIngredientCommand(any())).thenReturn(command);
 
         //then
         mockMvc.perform(post("/recipe/2/ingredient")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("id", "")
                 .param("description", "some string")
+                .param("recipeId", "2")
         )
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/recipe/2/ingredient/3/show"));

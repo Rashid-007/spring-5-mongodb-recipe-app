@@ -53,7 +53,7 @@ public class IngredientCommandToIngredientTest {
 
         //then
         assertNotNull(ingredient);
-        assertEquals(IG_ID, ingredient.getId());
+        assertNotNull(ingredient.getId());
         assertNotNull(ingredient.getUnitOfMeasure());
         assertEquals(UOM_ID, ingredient.getUnitOfMeasure().getId());
     }

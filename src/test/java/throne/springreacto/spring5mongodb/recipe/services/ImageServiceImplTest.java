@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
+import throne.springreacto.spring5mongodb.recipe.domain.Ingredient;
 import throne.springreacto.spring5mongodb.recipe.domain.Recipe;
 import throne.springreacto.spring5mongodb.recipe.repositories.RecipeRepository;
 
@@ -35,6 +36,7 @@ public class ImageServiceImplTest {
 
     @Test
     public void saveImageFile() throws IOException {
+        Recipe recipeTest = new Recipe();
         //given
         String id = "1";
         MultipartFile multipartFile = new MockMultipartFile("imagefile", "testing.txt", "text/plain",

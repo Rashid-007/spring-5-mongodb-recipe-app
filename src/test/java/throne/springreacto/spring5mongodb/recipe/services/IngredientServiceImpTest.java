@@ -93,7 +93,7 @@ public class IngredientServiceImpTest {
         when(recipeRepository.save(any())).thenReturn(savedRecipe);
 
         //when
-        IngredientCommand savedCommand = sut.saveIngredientCommand(command, any());
+        IngredientCommand savedCommand = sut.saveIngredientCommand(command);
 
         //then
         assertEquals("3", savedCommand.getId());
